@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 5c7bc9381, updated Wed May 12 18:18:08 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="96878f2f41f4f5c1830d6e37914f837097293c0f" name="document-revision">
+  <meta content="a7e503d5e34c107e73c86ff3446a7181e64f00a6" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -1688,6 +1688,14 @@ then return failure.</p>
      <li data-md>
       <p>If <var>expires</var> is given, then <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append④">append</a> `<code>Expires</code>`/<var>expires</var> (<a data-link-type="dfn" href="#date-serialize" id="ref-for-date-serialize">date serialized</a>) to <var>attributes</var>.</p>
      <li data-md>
+      <p>If <var>path</var> is not null, then run these steps:</p>
+      <ol>
+       <li data-md>
+        <p>If <var>path</var> does not start with U+002F (<code>/</code>), then return failure.</p>
+       <li data-md>
+        <p>If <var>path</var> does not end with U+002F (<code>/</code>), then append U+002F (<code>/</code>) to <var>path</var>.</p>
+      </ol>
+     <li data-md>
       <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑤">Append</a> `<code>Path</code>`/<var>path</var> (<a data-link-type="dfn" href="#encode" id="ref-for-encode①">encoded</a>) to <var>attributes</var>.</p>
      <li data-md>
       <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑥">Append</a> `<code>Secure</code>`/`` to <var>attributes</var>.</p>
@@ -1717,6 +1725,14 @@ then return failure.</p>
     <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="delete-a-cookie">delete a cookie</dfn> with <var>url</var>, <var>name</var>, <var>domain</var> and <var>path</var>,
 run the following steps:</p>
     <ol>
+     <li data-md>
+      <p>If <var>path</var> is not null, then run these steps:</p>
+      <ol>
+       <li data-md>
+        <p>If <var>path</var> does not start with U+002F (<code>/</code>), then return failure.</p>
+       <li data-md>
+        <p>If <var>path</var> does not end with U+002F (<code>/</code>), then append U+002F (<code>/</code>) to <var>path</var>.</p>
+      </ol>
      <li data-md>
       <p>Let <var>expires</var> be the earliest representable date represented <a data-link-type="dfn" href="#as-a-timestamp" id="ref-for-as-a-timestamp①">as a timestamp</a>.</p>
       <p class="note" role="note"><span>Note:</span> The exact value of <var>expires</var> is not important for the purposes of this algorithm,
