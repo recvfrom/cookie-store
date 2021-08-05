@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 59d067506, updated Fri Jul 23 15:43:29 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="77f41a8ae95cfdbe409e9032f784a3b6052e77f9" name="document-revision">
+  <meta content="7b7c70ffa93695c4f778b8a13108319b04ccb8f7" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -653,7 +653,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2021-07-30">30 July 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2021-08-05">5 August 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1999,9 +1999,21 @@ optional <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSi
 run the following steps:</p>
     <ol>
      <li data-md>
-      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var> contains U+003D (<code>=</code>), then return failure.</p>
+      <p>If <var>name</var>, <var>value</var>, <var>domain</var>, or <var>path</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn">control</a> character, or U+007F, then return failure.</p>
      <li data-md>
-      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length①">length</a> is 0 and <var>value</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length②">length</a> is 0, then return failure.</p>
+      <p>If <var>name</var> contains U+003D (<code>=</code>), then return failure.</p>
+     <li data-md>
+      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length①">length</a> is 0, then return failure.</p>
+     <li data-md>
+      <p>Determine whether <var>name</var> and <var>value</var> together exceed cookie size limits using these steps:</p>
+      <ol>
+       <li data-md>
+        <p>UTF-8 Encode <var>name</var> and then compute its <a data-link-type="dfn">length</a>.</p>
+       <li data-md>
+        <p>UTF-8 Encode <var>value</var> and then compute its <a data-link-type="dfn">length</a>.</p>
+       <li data-md>
+        <p>If the sum of the two computed lengths is greater than 4096 bytes, then return failure.</p>
+      </ol>
      <li data-md>
       <p>Let <var>host</var> be <var>url</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-host" id="ref-for-concept-url-host">host</a></p>
      <li data-md>
@@ -2009,6 +2021,8 @@ run the following steps:</p>
      <li data-md>
       <p>If <var>domain</var> is not null, then run these steps:</p>
       <ol>
+       <li data-md>
+        <p>If <var>domain</var>’s UTF-8-encoded <a data-link-type="dfn">length</a> is greater than 1024 bytes, then return failure.</p>
        <li data-md>
         <p>If <var>domain</var> starts with U+002D (<code>.</code>), then return failure.</p>
        <li data-md>
@@ -2022,6 +2036,8 @@ then return failure.</p>
      <li data-md>
       <p>If <var>path</var> is not null, then run these steps:</p>
       <ol>
+       <li data-md>
+        <p>If <var>path</var>’s UTF-8-encoded <a data-link-type="dfn">length</a> is greater than 1024 bytes, then return failure.</p>
        <li data-md>
         <p>If <var>path</var> does not start with U+002F (<code>/</code>), then return failure.</p>
        <li data-md>
@@ -2207,7 +2223,7 @@ with <var>url</var> as <var>request-uri</var>, for a "non-HTTP" API.</p>
     <li data-md>
      <p>superdomains can typically overwrite cookies seen by subdomains</p>
     <li data-md>
-     <p>cross-site scripting attacts and other script and header injection attacks can be used to forge cookies too</p>
+     <p>cross-site scripting attacks and other script and header injection attacks can be used to forge cookies too</p>
     <li data-md>
      <p>cookie read operations (both from script and on web servers) don’t give any indication of where the cookie came from</p>
     <li data-md>
@@ -2764,7 +2780,7 @@ authoring advice.</p>
   <aside class="dfn-panel" data-for="term-for-string-length">
    <a href="https://infra.spec.whatwg.org/#string-length">https://infra.spec.whatwg.org/#string-length</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-string-length">7.2. Set a Cookie</a> <a href="#ref-for-string-length①">(2)</a> <a href="#ref-for-string-length②">(3)</a>
+    <li><a href="#ref-for-string-length">7.2. Set a Cookie</a> <a href="#ref-for-string-length①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-list">
