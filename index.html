@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 59d067506, updated Fri Jul 23 15:43:29 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="7b7c70ffa93695c4f778b8a13108319b04ccb8f7" name="document-revision">
+  <meta content="94f6cd1f040149d6f6a6ab91da9055728dd2e351" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -2008,11 +2008,11 @@ run the following steps:</p>
       <p>Determine whether <var>name</var> and <var>value</var> together exceed cookie size limits using these steps:</p>
       <ol>
        <li data-md>
-        <p>UTF-8 Encode <var>name</var> and then compute its <a data-link-type="dfn">length</a>.</p>
+        <p><a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode①">UTF-8 encode</a> <var>name</var> and then compute its <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence②">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length">length</a>.</p>
        <li data-md>
-        <p>UTF-8 Encode <var>value</var> and then compute its <a data-link-type="dfn">length</a>.</p>
+        <p><a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode②">UTF-8 encode</a> <var>value</var> and then compute its <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence③">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length①">length</a>.</p>
        <li data-md>
-        <p>If the sum of the two computed lengths is greater than 4096 bytes, then return failure.</p>
+        <p>If the sum of the two computed lengths is greater than 4096 <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte" id="ref-for-byte">byte</a>s, then return failure.</p>
       </ol>
      <li data-md>
       <p>Let <var>host</var> be <var>url</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-host" id="ref-for-concept-url-host">host</a></p>
@@ -2022,7 +2022,7 @@ run the following steps:</p>
       <p>If <var>domain</var> is not null, then run these steps:</p>
       <ol>
        <li data-md>
-        <p>If <var>domain</var>’s UTF-8-encoded <a data-link-type="dfn">length</a> is greater than 1024 bytes, then return failure.</p>
+        <p>If <var>domain</var>’s UTF-8-encoded <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence④">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length②">length</a> is greater than 1024 bytes, then return failure.</p>
        <li data-md>
         <p>If <var>domain</var> starts with U+002D (<code>.</code>), then return failure.</p>
        <li data-md>
@@ -2037,7 +2037,7 @@ then return failure.</p>
       <p>If <var>path</var> is not null, then run these steps:</p>
       <ol>
        <li data-md>
-        <p>If <var>path</var>’s UTF-8-encoded <a data-link-type="dfn">length</a> is greater than 1024 bytes, then return failure.</p>
+        <p>If <var>path</var>’s UTF-8-encoded <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑤">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length③">length</a> is greater than 1024 bytes, then return failure.</p>
        <li data-md>
         <p>If <var>path</var> does not start with U+002F (<code>/</code>), then return failure.</p>
        <li data-md>
@@ -2560,6 +2560,7 @@ authoring advice.</p>
    <a href="https://encoding.spec.whatwg.org/#utf-8-encode">https://encoding.spec.whatwg.org/#utf-8-encode</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-utf-8-encode">7. Algorithms</a>
+    <li><a href="#ref-for-utf-8-encode①">7.2. Set a Cookie</a> <a href="#ref-for-utf-8-encode②">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-fetch">
@@ -2734,10 +2735,17 @@ authoring advice.</p>
     <li><a href="#ref-for-iteration-break">7.4. Process Changes</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-byte">
+   <a href="https://infra.spec.whatwg.org/#byte">https://infra.spec.whatwg.org/#byte</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-byte">7.2. Set a Cookie</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-byte-sequence">
    <a href="https://infra.spec.whatwg.org/#byte-sequence">https://infra.spec.whatwg.org/#byte-sequence</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-byte-sequence">7. Algorithms</a> <a href="#ref-for-byte-sequence①">(2)</a>
+    <li><a href="#ref-for-byte-sequence②">7.2. Set a Cookie</a> <a href="#ref-for-byte-sequence③">(2)</a> <a href="#ref-for-byte-sequence④">(3)</a> <a href="#ref-for-byte-sequence⑤">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-list-contain">
@@ -3131,13 +3139,14 @@ authoring advice.</p>
     <ul>
      <li><span class="dfn-paneled" id="term-for-set-append">append <small>(for set)</small></span>
      <li><span class="dfn-paneled" id="term-for-iteration-break">break</span>
+     <li><span class="dfn-paneled" id="term-for-byte">byte</span>
      <li><span class="dfn-paneled" id="term-for-byte-sequence">byte sequence</span>
      <li><span class="dfn-paneled" id="term-for-list-contain">contain</span>
      <li><span class="dfn-paneled" id="term-for-iteration-continue">continue</span>
      <li><span class="dfn-paneled" id="term-for-list-iterate">for each</span>
      <li><span class="dfn-paneled" id="term-for-list-is-empty">is empty</span>
      <li><span class="dfn-paneled" id="term-for-list-item">item</span>
-     <li><span class="dfn-paneled" id="term-for-string-length">length</span>
+     <li><span class="dfn-paneled" id="term-for-string-length">length <small>(for string)</small></span>
      <li><span class="dfn-paneled" id="term-for-list">list</span>
      <li><span class="dfn-paneled" id="term-for-list-remove">remove</span>
      <li><span class="dfn-paneled" id="term-for-ordered-set">set</span>
