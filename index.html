@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 59d067506, updated Fri Jul 23 15:43:29 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="7cbf583701fddcaeef3440c21d9a976865e8b789" name="document-revision">
+  <meta content="072a181738abd2c851bbf3b68dfd52c2421cd552" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -1999,11 +1999,11 @@ optional <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSi
 run the following steps:</p>
     <ol>
      <li data-md>
-      <p>If <var>name</var>, <var>value</var>, <var>domain</var>, or <var>path</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn">control</a> character, or U+007F, then return failure.</p>
+      <p>If <var>name</var>, <var>value</var>, <var>domain</var>, or <var>path</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character, or U+007F, then return failure.</p>
      <li data-md>
-      <p>If <var>name</var> contains U+003D (<code>=</code>), then return failure.</p>
+      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var> contains U+003D (<code>=</code>), then return failure.</p>
      <li data-md>
-      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length①">length</a> is 0, then return failure.</p>
+      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length①">length</a> is 0 and <var>value</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length②">length</a> is 0, then return failure.</p>
      <li data-md>
       <p>Determine whether <var>name</var> and <var>value</var> together exceed cookie size limits using these steps:</p>
       <ol>
@@ -2748,6 +2748,12 @@ authoring advice.</p>
     <li><a href="#ref-for-byte-sequence②">7.2. Set a Cookie</a> <a href="#ref-for-byte-sequence③">(2)</a> <a href="#ref-for-byte-sequence④">(3)</a> <a href="#ref-for-byte-sequence⑤">(4)</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-c0-control">
+   <a href="https://infra.spec.whatwg.org/#c0-control">https://infra.spec.whatwg.org/#c0-control</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-c0-control">7.2. Set a Cookie</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-list-contain">
    <a href="https://infra.spec.whatwg.org/#list-contain">https://infra.spec.whatwg.org/#list-contain</a><b>Referenced in:</b>
    <ul>
@@ -2788,7 +2794,7 @@ authoring advice.</p>
   <aside class="dfn-panel" data-for="term-for-string-length">
    <a href="https://infra.spec.whatwg.org/#string-length">https://infra.spec.whatwg.org/#string-length</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-string-length">7.2. Set a Cookie</a> <a href="#ref-for-string-length①">(2)</a>
+    <li><a href="#ref-for-string-length">7.2. Set a Cookie</a> <a href="#ref-for-string-length①">(2)</a> <a href="#ref-for-string-length②">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-list">
@@ -3141,6 +3147,7 @@ authoring advice.</p>
      <li><span class="dfn-paneled" id="term-for-iteration-break">break</span>
      <li><span class="dfn-paneled" id="term-for-byte">byte</span>
      <li><span class="dfn-paneled" id="term-for-byte-sequence">byte sequence</span>
+     <li><span class="dfn-paneled" id="term-for-c0-control">c0 control</span>
      <li><span class="dfn-paneled" id="term-for-list-contain">contain</span>
      <li><span class="dfn-paneled" id="term-for-iteration-continue">continue</span>
      <li><span class="dfn-paneled" id="term-for-list-iterate">for each</span>
