@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 59d067506, updated Fri Jul 23 15:43:29 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="4f17e5ce80660767cdf1cb8a0056a03b752c9022" name="document-revision">
+  <meta content="1cbef0931a7a8f8b7d054f7b74926570f5d1a122" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -1061,7 +1061,7 @@ the subscriptions that have been made.</p>
    <p>A cookie is also subject to certain size limits. Per <a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis#section-5.5">Cookies: HTTP State Management Mechanism §Storage Model</a>:</p>
    <ul>
     <li data-md>
-     <p>The combined lengths of the name and value fields must not be greater than 4096 <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte" id="ref-for-byte">bytes</a> (the <dfn data-dfn-for="cookie" data-dfn-type="dfn" data-noexport id="cookie-maximum-name-value-pair-size">maximum name/value pair size<a class="self-link" href="#cookie-maximum-name-value-pair-size"></a></dfn>).</p>
+     <p>The combined lengths of the name and value fields must not be greater than 4096 <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte" id="ref-for-byte">bytes</a> (the <dfn class="dfn-paneled" data-dfn-for="cookie" data-dfn-type="dfn" data-noexport id="cookie-maximum-name-value-pair-size">maximum name/value pair size</dfn>).</p>
     <li data-md>
      <p>The length of every field except the name and value fields must not be greater than 1024 <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte" id="ref-for-byte①">bytes</a> (the <dfn class="dfn-paneled" data-dfn-for="cookie" data-dfn-type="dfn" data-noexport id="cookie-maximum-attribute-value-size">maximum attribute value size</dfn>).</p>
    </ul>
@@ -2016,7 +2016,7 @@ run the following steps:</p>
      <li data-md>
       <p>Let <var>encodedValue</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode②">UTF-8 encoding</a> <var>value</var>.</p>
      <li data-md>
-      <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence②">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length">length</a> of <var>encodedName</var> plus the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence③">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length①">length</a> of <var>encodedValue</var> is greater than the <a data-link-type="dfn">value pair size</a>, then return failure.</p>
+      <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence②">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length">length</a> of <var>encodedName</var> plus the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence③">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length①">length</a> of <var>encodedValue</var> is greater than the <a data-link-type="dfn" href="#cookie-maximum-name-value-pair-size" id="ref-for-cookie-maximum-name-value-pair-size">maximum name/value pair size</a>, then return failure.</p>
      <li data-md>
       <p>Let <var>host</var> be <var>url</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-host" id="ref-for-concept-url-host">host</a></p>
      <li data-md>
@@ -3443,6 +3443,12 @@ authoring advice.</p>
     <li><a href="#ref-for-script-visible③">3.2. The getAll() method</a>
     <li><a href="#ref-for-script-visible④">5.1. The CookieChangeEvent interface</a>
     <li><a href="#ref-for-script-visible⑤">5.2. The ExtendableCookieChangeEvent interface</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="cookie-maximum-name-value-pair-size">
+   <b><a href="#cookie-maximum-name-value-pair-size">#cookie-maximum-name-value-pair-size</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-cookie-maximum-name-value-pair-size">7.2. Set a Cookie</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="cookie-maximum-attribute-value-size">
