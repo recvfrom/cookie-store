@@ -7,7 +7,7 @@
   <meta content="Bikeshed version b2f668fca, updated Fri Aug 6 17:41:38 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="5f709581c9e994203ab9b501f1dcc575192c5dde" name="document-revision">
+  <meta content="14c45435e3ea9cc285a6b2e62635192f5148291a" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -2006,7 +2006,7 @@ optional <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSi
 run the following steps:</p>
     <ol>
      <li data-md>
-      <p>If <var>name</var>, <var>value</var>, <var>expires</var>, <var>domain</var>, <var>path</var>, or <var>sameSite</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 (the horizontal tab character), or U+007F, then return failure.</p>
+      <p>If <var>name</var> or <var>value</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 (the horizontal tab character), or U+007F, then return failure.</p>
      <li data-md>
       <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var> contains U+003D (<code>=</code>), then return failure.</p>
      <li data-md>
