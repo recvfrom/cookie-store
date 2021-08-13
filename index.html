@@ -4,10 +4,10 @@
   <title>Cookie Store API</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <link href="https://www.w3.org/StyleSheets/TR/2016/cg-draft" rel="stylesheet">
-  <meta content="Bikeshed version b2f668fca, updated Fri Aug 6 17:41:38 2021 -0700" name="generator">
+  <meta content="Bikeshed version 4f053d00e, updated Tue Aug 10 14:13:32 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="14c45435e3ea9cc285a6b2e62635192f5148291a" name="document-revision">
+  <meta content="022b610e073713ec3d4d8d9a455b7b4935d864cf" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -653,7 +653,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2021-08-09">9 August 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2021-08-13">13 August 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2006,7 +2006,8 @@ optional <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSi
 run the following steps:</p>
     <ol>
      <li data-md>
-      <p>If <var>name</var> or <var>value</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 (the horizontal tab character), or U+007F, then return failure.</p>
+      <p>If <var>name</var> or <var>value</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 (the horizontal tab character), or U+007F, then return failure.
+ISSUE(httpwg/http-extensions#1593): Note that it’s up for discussion whether these character restrictions should also apply to <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var> as well.</p>
      <li data-md>
       <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var> contains U+003D (<code>=</code>), then return failure.</p>
      <li data-md>
