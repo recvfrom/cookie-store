@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 4f053d00e, updated Tue Aug 10 14:13:32 2021 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="022b610e073713ec3d4d8d9a455b7b4935d864cf" name="document-revision">
+  <meta content="cd44859a9874465366aa04d26402fbf23349904c" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -662,6 +662,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <dd><a href="https://github.com/web-platform-tests/wpt/tree/master/cookie-store">https://github.com/web-platform-tests/wpt/tree/master/cookie-store</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/WICG/cookie-store/issues/">GitHub</a>
+     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:ayui@google.com">Ayu Ishii</a> (<a class="p-org org" href="https://google.com">Google Inc.</a>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:costan@google.com">Victor Costan</a> (<a class="p-org org" href="https://google.com">Google Inc.</a>)
@@ -782,6 +783,7 @@ A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
     <li><a href="#idl-index"><span class="secno"></span> <span class="content">IDL Index</span></a>
+    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
@@ -2006,8 +2008,8 @@ optional <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSi
 run the following steps:</p>
     <ol>
      <li data-md>
-      <p>If <var>name</var> or <var>value</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 (the horizontal tab character), or U+007F, then return failure.
-ISSUE(httpwg/http-extensions#1593): Note that it’s up for discussion whether these character restrictions should also apply to <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var> as well.</p>
+      <p>If <var>name</var> or <var>value</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 (the horizontal tab character), or U+007F, then return failure.</p>
+      <p class="issue" id="issue-d93c44be"><a class="self-link" href="#issue-d93c44be"></a> Note that it’s up for discussion whether these character restrictions should also apply to <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var> as well. <a href="https://github.com/httpwg/http-extensions/issues/1593">&lt;https://github.com/httpwg/http-extensions/issues/1593></a></p>
      <li data-md>
       <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var> contains U+003D (<code>=</code>), then return failure.</p>
      <li data-md>
@@ -3350,6 +3352,10 @@ authoring advice.</p>
 };
 
 </pre>
+  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
+  <div style="counter-reset:issue">
+   <div class="issue"> Note that it’s up for discussion whether these character restrictions should also apply to <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var> as well. <a href="https://github.com/httpwg/http-extensions/issues/1593">&lt;https://github.com/httpwg/http-extensions/issues/1593></a><a href="#issue-d93c44be"> ↵ </a></div>
+  </div>
   <aside class="dfn-panel" data-for="cookie">
    <b><a href="#cookie">#cookie</a></b><b>Referenced in:</b>
    <ul>
